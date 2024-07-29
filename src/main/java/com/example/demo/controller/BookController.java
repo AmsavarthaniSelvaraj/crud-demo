@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.entity.Book;
+import com.example.demo.dto.BookDto;
 import com.example.demo.service.BookService;
 
 @RestController
@@ -21,19 +21,20 @@ public class BookController {
 	private BookService bookService;
 
 	@PostMapping("/post")
-	public String addBook(@RequestBody Book book) {
+	public String addBook(@RequestBody BookDto book) {
 		bookService.saveBook(book);
-		return "success";
+		return "Success";
 	}
 
 	@GetMapping("/get/{id}")
-	public Book getBook(@PathVariable int id) {
+	public BookDto getBook(@PathVariable int id) {
 		return bookService.getBook(id);
 	}
 
 	@PutMapping("/update")
-	public Book updateBook(@RequestBody Book book) {
-		return bookService.updateBook(book);
+	public String updateBook(@RequestBody BookDto book) {
+		bookService.saveBook(book);
+		return "success";
 	}
 
 	@DeleteMapping("/delete/{id}")
