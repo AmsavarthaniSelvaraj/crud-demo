@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.example.demo.entity.Client;
 import com.example.demo.service.ClientService;
-import ch.qos.logback.core.net.server.Client;
 
 @RestController
 @RequestMapping("/client")

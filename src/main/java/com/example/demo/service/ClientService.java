@@ -5,8 +5,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.demo.entity.Client;
 import com.example.demo.repository.ClientRepository;
-import ch.qos.logback.core.net.server.Client;
 
 @Service
 public class ClientService {

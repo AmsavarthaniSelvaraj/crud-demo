@@ -12,19 +12,21 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "bill")
+@Table(name="emp")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Bill {
+public class Emp {
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+
 	private int id;
-	private String billName;
-	private String billDate;
+	private String name;
+	private String address;
+	
+	@ManyToOne
+	@JoinColumn(name="manager_id")
+	private Manager manager;
 
-
-@ManyToOne
-@JoinColumn(name = "client_id")
-private Client client;
 }
