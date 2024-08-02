@@ -23,8 +23,7 @@ public class Bill {
 	private String billName;
 	private String billDate;
 
-
-@ManyToOne
-@JoinColumn(name = "client_id")
-private Client client;
+	//@ManyToOne
+	//@JoinColumn(name = "client_id")
+	//private Client client;
 }

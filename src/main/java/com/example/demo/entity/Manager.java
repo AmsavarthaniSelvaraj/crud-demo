@@ -15,19 +15,20 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="manager")
+@Table(name = "manager")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Manager {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
-	
-	@OneToMany(mappedBy="manager",cascade=CascadeType.ALL)
-	@JoinColumn(name="client_id",referencedColumnName="id")
+
+	@OneToMany(targetEntity=Emp.class, cascade = CascadeType.ALL)
+	@JoinColumn(name="manager_Id",referencedColumnName="id")
 	private List<Emp> emp;
 
 }
+

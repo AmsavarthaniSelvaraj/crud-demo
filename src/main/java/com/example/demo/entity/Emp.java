@@ -12,21 +12,14 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name="emp")
+@Table(name = "emp")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class Emp {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-
 	private int id;
 	private String name;
-	private String address;
-	
-	@ManyToOne
-	@JoinColumn(name="manager_id")
-	private Manager manager;
-
 }

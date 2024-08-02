@@ -26,19 +26,10 @@ public class Client {
 	private int id;
 	private String name;
 
-	
-	//@OneToMany(targetEntity=Bill.class,cascade=CascadeType.ALL)
-	//@JoinColumn(name="client_id",referencedColumnName="id")
-	@OneToMany(mappedBy="client",cascade=CascadeType.ALL,orphanRemoval=true)
+	 @OneToMany(targetEntity=Bill.class,cascade=CascadeType.ALL)
+     @JoinColumn(name="client_id",referencedColumnName="id")
 	private List<Bill> bill;
 
 }
-
-
-
-
-
-
-
 
 //@OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true)

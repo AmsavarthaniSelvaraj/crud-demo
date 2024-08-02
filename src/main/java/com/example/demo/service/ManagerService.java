@@ -40,8 +40,9 @@ public class ManagerService {
 			obj1.setId(obj2.getId());
 			obj1.setName(obj2.getName());
 			List<EmpDto> list1 = new ArrayList<EmpDto>();
-			for (Emp emp : showDto.getManager) {
-				ManagerDto obj3 = new ManagerDto();
+			for (Emp emp : obj2.getEmp()) {
+				EmpDto obj3 = new EmpDto();
+				obj3.setId(emp.getId());
 				obj3.setName(emp.getName());
 				list1.add(obj3);
 			}
@@ -53,9 +54,17 @@ public class ManagerService {
 		List<Manager> list = managerRepository.findAll();
 		List<ManagerDto> list1 = new ArrayList<ManagerDto>();
 		for (Manager manager : list) {
-			Manager obj = new Manager();
+			ManagerDto obj = new ManagerDto();
 			obj.setId(manager.getId());
 			obj.setName(manager.getName());
+			List<EmpDto> list2 = new ArrayList<EmpDto>();
+			for (Emp emp : manager.getEmp()) {
+				EmpDto obj1 = new EmpDto();
+				obj1.setId(emp.getId());
+				obj1.setName(emp.getName());
+				list2.add(obj1);
+			}
+			obj.setEmp(list2);
 			list1.add(obj);
 		}
 		return list1;

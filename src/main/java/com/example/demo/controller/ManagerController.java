@@ -41,7 +41,7 @@ public class ManagerController {
 		managerService.addManager(manager);
 		return "Success";
 }
-	@DeleteMapping("/delete")
+	@DeleteMapping("/delete/{id}")
 	public String deleteManager(@PathVariable int id) {
 		managerService.deleteManager(id);
 		return "Success";
