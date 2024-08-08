@@ -12,7 +12,8 @@ import com.example.demo.entity.Toys;
 @Repository
 public interface ToysRepository extends JpaRepository<Toys, Integer> {
 
-	@Query(value = "SELECT * FROM toys t WHERE (t.name=:name or :name is null) &(t.color=:color or :color is null)& (t.price=:price or :price is null) & (t.shop_name=:shopName or :shopName is null)", nativeQuery = true)
+	@Query(value = "SELECT * FROM toys t WHERE (t.name LIKE %:name or :name is null) &(t.color LIKE %:color or :color is null)& "
+			+ "(t.price=:price or :price is null) & (t.shop_name=:shopName or :shopName is null)", nativeQuery = true)
 	Page<Toys> findByNameContaining(@Param("name") String name, @Param("color") String color,
 			@Param("price") Double price, @Param("shopName") String shopName, Pageable pageable);
 
