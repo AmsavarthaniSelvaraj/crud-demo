@@ -14,7 +14,11 @@ public class FileService {
 	private FileRepository fileRepository;
 
 	public File addFile(File file) {
+
+		String encryptPassword = Password.ByteEncryt(file.getPassword());
+		file.setPassword(encryptPassword);
 		return fileRepository.save(file);
+
 	}
 
 	public Optional<File> getFile(int id) {

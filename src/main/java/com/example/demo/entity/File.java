@@ -25,6 +25,7 @@ public class File {
 
 	private int id;
 	private String name;
+	private String password;
 
 	@OneToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "document_id", referencedColumnName = "id")
